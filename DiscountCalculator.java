@@ -1,10 +1,12 @@
 class DiscountCalculator {
-    public double calculateTotal(double subtotal, double taxRate) {
-        double tax = subtotal * taxRate;
-        return subtotal + tax;
+    private final CalculationService calculationService;
+
+    public DiscountCalculator(CalculationService calculationService) {
+        this.calculationService = calculationService;
     }
 
-    public double applyDiscount(double total, double discountRate) {
-        return total * (1 - discountRate);
+    public double calculateDiscountedTotal(double subtotal, double taxRate, double discountRate) {
+        double total = calculationService.calculateTotal(subtotal, taxRate);
+        return calculationService.applyDiscount(total, discountRate);
     }
 }
