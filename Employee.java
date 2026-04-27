@@ -1,13 +1,16 @@
-public class Employee {
-    public double calculateBonus(String type) {
-        if (type.equals("Manager")) {
-            return 5000;
-        } else if (type.equals("Developer")) {
-            return 3000;
-        } else {
-            return 1000;
-        }
-    }
+abstract class Employee {
+    abstract double calculateBonus();
 }
+
+class Manager extends Employee {
+    double calculateBonus() { return 5000; }
+}
+
+class Developer extends Employee {
+    double calculateBonus() { return 3000; }
+}
+
+class Intern extends Employee {
+    double calculateBonus() { return 1000; }
 }
 
