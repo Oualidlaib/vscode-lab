@@ -1,19 +1,13 @@
-class Dog {
+abstract class Animal {
     public void eat() {
-        System.out.println("Dog is eating");
+        System.out.println(getClass().getSimpleName() + " is eating");
     }
 
     public void sleep() {
-        System.out.println("Dog is sleeping");
+        System.out.println(getClass().getSimpleName() + " is sleeping");
     }
 }
 
-class Cat {
-    public void eat() {
-        System.out.println("Cat is eating");
-    }
+class Dog extends Animal {}
 
-    public void sleep() {
-        System.out.println("Cat is sleeping");
-    }
-}
+class Cat extends Animal {}
