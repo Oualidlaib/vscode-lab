@@ -76,4 +76,12 @@ public class OrderProcessor {
             throw new IllegalArgumentException("Payment amount must be greater than 0");
         }
     }
+    
+    public double calculateTotal(Order order) {
+        double total = 0;
+        for (Item item : order.getItems()) {
+            total += item.getPrice() * item.getQuantity();
+        }
+        return total;
+    }
 } 
